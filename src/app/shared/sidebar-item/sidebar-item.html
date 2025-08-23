@@ -1,0 +1,30 @@
+<div class="sidebar-item">
+  <!-- Inline editing con @if -->
+  @if (isEditing()) {
+    <input type="text"
+           [(ngModel)]="editedName"
+           (blur)="saveEdit()"
+           (keydown.enter)="saveEdit()"
+           (keydown.escape)="cancelEdit()"
+           class="edit-input"
+           autofocus />
+  }
+  @else {
+    <span>{{ portfolio.name }}</span>
+  }
+
+  <!-- Icono de opciones -->
+  <div class="more-icon">
+    <span class="material-symbols-outlined" (click)="toggleOptions($event)">
+      more_horiz
+    </span>
+
+    <!-- Dropdown -->
+    @if (optionsVisible()) {
+      <div class="options-menu show">
+        <div class="option" (click)="startEditing()">Rename</div>
+        <div class="option" (click)="delete()">Delete</div>
+      </div>
+    }
+  </div>
+</div>

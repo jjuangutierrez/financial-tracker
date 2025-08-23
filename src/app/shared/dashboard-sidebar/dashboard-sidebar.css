@@ -1,0 +1,31 @@
+aside {
+    width: 250px;
+    padding: 0 24px;
+}
+
+.add-portfolio
+{
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    background-color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.add-portfolio span {
+    margin: 0 8px;
+}
+
+.add-portfolio:hover {
+    transition: background-color 0.3s ease;
+    background-color: #E8FFD7;
+}
+
+li {
+    list-style: none;
+    margin: 4px 0;
+}
+
