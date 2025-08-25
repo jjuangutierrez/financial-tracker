@@ -1,0 +1,93 @@
+<div>
+    <div>
+        @if (selectedPortfolio()) {
+        <div>
+            <h3>{{ selectedPortfolio()?.name }}</h3>
+            <p>
+                Balance: ${{ balance() | number:'1.2-2' }}
+            </p>
+        </div>
+        }
+    </div>
+
+    <nav>
+        <ul>
+            <li (click)="showIncomes()">
+                Ingresos ({{ incomes().length }})
+            </li>
+            <li (click)="showExpenses()">
+                Gastos ({{ expenses().length }})
+            </li>
+        </ul>
+    </nav>
+
+    <div>
+        @if (showIncomesView()) {
+        <div>
+            <div>
+                <h3>Ingresos</h3>
+
+                <label for="">Description</label>
+                <input type="text" [(ngModel)]="description">
+
+                <label for="">Amount</label>
+                <input type="number" [(ngModel)]="amount">
+
+                <button (click)="addNewTransaction('income')">
+                    Nuevo Ingreso
+                </button>
+            </div>
+
+            @if (incomes().length === 0) {
+            <p>No hay ingresos registrados</p>
+            } @else {
+            <ul>
+                @for (income of incomes(); track income.id) {
+                <li>
+                    <div>
+                        <span>{{ income.description }}</span>
+                        <span>+${{ income.amount | number:'1.2-2' }}</span>
+                        <span>{{ income.date | date:'short' }}</span>
+                    </div>
+                    <button (click)="deleteTransaction(income.id)">×</button>
+                </li>
+                }
+            </ul>
+            }
+        </div>
+        } @else {
+        <div>
+            <div>
+                <h3>Gastos</h3>
+
+                <label for="">Description</label>
+                <input type="text" [(ngModel)]="description">
+
+                <label for="">Amount</label>
+                <input type="number" [(ngModel)]="amount">
+
+                <button (click)="addNewTransaction('expense')">
+                    Nuevo Gasto
+                </button>
+            </div>
+
+            @if (expenses().length === 0) {
+            <p>No hay gastos registrados</p>
+            } @else {
+            <ul>
+                @for (expense of expenses(); track expense.id) {
+                <li>
+                    <div>
+                        <span>{{ expense.description }}</span>
+                        <span>-${{ expense.amount | number:'1.2-2' }}</span>
+                        <span>{{ expense.date | date:'short' }}</span>
+                    </div>
+                    <button (click)="deleteTransaction(expense.id)">×</button>
+                </li>
+                }
+            </ul>
+            }
+        </div>
+        }
+    </div>
+</div>
