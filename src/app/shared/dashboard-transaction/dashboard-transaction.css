@@ -1,0 +1,95 @@
+.transaction-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.transaction-nav li.active {
+  font-weight: bold;
+  border-bottom: 3px solid #4caf50;
+}
+
+.transaction-form ul {
+  margin: 0;
+  padding: 0;
+}
+
+.transaction-nav li {
+  display: flex;
+  cursor: pointer;
+  padding: 8px;
+  margin: 0px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.transaction-nav li:hover {
+  background-color: #e8ffd7;
+  cursor: pointer;
+}
+
+.transaction-form {
+  display: flex;
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.transaction-table thead th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  padding: 12px 8px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+}
+
+.transaction-table tbody td {
+  padding: 12px 8px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.transaction-table th:nth-child(2),
+.transaction-table td:nth-child(2) {
+  text-align: right;
+}
+
+.transaction-table th:nth-child(3),
+.transaction-table td:nth-child(3) {
+  text-align: center;
+}
+
+.transaction-table th:nth-child(4),
+.transaction-table td:nth-child(4) {
+  text-align: center;
+}
+
+.transaction-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.transaction-table .no-data {
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  padding: 20px;
+}
+
+.transaction-table button {
+  padding: 4px 8px;
+  border: none;
+  background-color: #dc3545;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.transaction-table button:hover {
+  background-color: #c82333;
+}

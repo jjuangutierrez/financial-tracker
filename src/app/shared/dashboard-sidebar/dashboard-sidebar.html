@@ -1,17 +1,15 @@
 <aside>
-    <h2>Portfolios</h2>
-    <div class="add-portfolio" (click)="addPortfolio()">
-        <span class="material-symbols-outlined">
-            new_window
-        </span>
+  <h2>Portfolios</h2>
+  <div class="add-portfolio" (click)="addPortfolio()">
+    <span class="material-symbols-outlined"> new_window </span>
 
-        <span>Add new portfolio</span>
-    </div>
-    <ul>
-        @for (portfolio of portfolioService.portfolios(); track $index) {
-        <li>
-            <app-sidebar-item [portfolio]="portfolio"></app-sidebar-item>
-        </li>
-        }
-    </ul>
+    <span>Add new portfolio</span>
+  </div>
+  <ul>
+    @for (portfolio of portfolioService.portfolios(); track $index) {
+    <li>
+      <app-sidebar-item [portfolio]="portfolio"></app-sidebar-item>
+    </li>
+    }
+  </ul>
 </aside>

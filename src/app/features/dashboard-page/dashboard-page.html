@@ -1,18 +1,24 @@
-<div>
+<div class="dashboard-container">
+  <div>
+    <app-dashboard-sidebar></app-dashboard-sidebar>
+  </div>
+
+  <div class="dashboard-content">
     <div>
-        <app-dashboard-sidebar></app-dashboard-sidebar>
+      <nav>
+        <ul>
+          <li>Transacionts</li>
+          <li>Calender</li>
+        </ul>
+      </nav>
     </div>
 
     <div>
-        <nav>
-            <ul>
-                <li>Transacionts</li>
-                <li>Calender</li>
-            </ul>
-        </nav>
-
-        <div>
-            <app-dashboard-transaction></app-dashboard-transaction>
-        </div>
+      <app-dashboard-summary></app-dashboard-summary>
     </div>
+
+    <div class="transactions-section">
+      <app-dashboard-transaction></app-dashboard-transaction>
+    </div>
+  </div>
 </div>

@@ -1,16 +1,16 @@
-// shared/dashboard-transaction/dashboard-transaction.ts
-import { Component, inject, signal, computed, model } from "@angular/core";
-import { Transaction } from "../../core/models/transaction.model";
-import { TransactionService } from "../../core/services/transaction.service";
-import { PortfolioService } from "../../core/services/portfolio.servie";
+import { Component, inject, signal, computed, model } from '@angular/core';
+import { Transaction } from '../../core/models/transaction.model';
+import { TransactionService } from '../../core/services/transaction.service';
+import { PortfolioService } from '../../core/services/portfolio.servie';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from "@angular/forms";
+import { AddTransactionForm } from '../add-transaction-modal/add-transaction-form';
+import { Dialog } from '@angular/cdk/dialog';
 
 @Component({
-  selector: "app-dashboard-transaction",
-  templateUrl: "./dashboard-transaction.html",
-  styleUrls: ["./dashboard-transaction.css"],
-  imports: [CommonModule, FormsModule]
+  selector: 'app-dashboard-transaction',
+  templateUrl: './dashboard-transaction.html',
+  styleUrls: ['./dashboard-transaction.css'],
+  imports: [CommonModule, AddTransactionForm],
 })
 export class DashboardTransaction {
   description = model('');
@@ -18,25 +18,71 @@ export class DashboardTransaction {
 
   private transactionService = inject(TransactionService);
   private portfolioService = inject(PortfolioService);
+  private dialog = inject(Dialog);
 
   selectedPortfolio = this.portfolioService.selectedPortfolio;
   selectedPortfolioId = this.portfolioService.selectedPortfolioId;
   portfolios = this.portfolioService.portfolios;
   balance = this.portfolioService.getPortfolioBalance;
 
-  transactions = computed(() => 
-    this.transactionService.getTransactionsByPortfolio(this.selectedPortfolioId())()
+  protected openModal() {
+    const dialogRef = this.dialog.open(AddTransactionForm, {
+      data: {
+        showIncomesView: this.showIncomesView,
+      },
+    });
+
+    dialogRef.componentInstance!.addTransaction.subscribe(
+      (event: {
+        description: string;
+        amount: number;
+        type: 'income' | 'expense';
+      }) => {
+        this.handleAddTransaction(event);
+        dialogRef.close();
+      }
+    );
+
+    dialogRef.componentInstance!.showIncomesView = this.showIncomesView;
+  }
+
+  transactions = computed(() =>
+    this.transactionService.getTransactionsByPortfolio(
+      this.selectedPortfolioId()
+    )()
   );
-  
-  incomes = computed(() => 
+
+  incomes = computed(() =>
     this.transactionService.getIncomesByPortfolio(this.selectedPortfolioId())()
   );
-  
-  expenses = computed(() => 
+
+  expenses = computed(() =>
     this.transactionService.getExpensesByPortfolio(this.selectedPortfolioId())()
   );
 
   showIncomesView = signal(true);
+
+  handleAddTransaction(event: {
+    description: string;
+    amount: number;
+    type: 'income' | 'expense';
+  }) {
+    if (!event.description.trim() || event.amount <= 0) {
+      console.warn('Por favor completa todos los campos con valores válidos');
+      return;
+    }
+
+    const newTx: Transaction = {
+      id: 0,
+      portfolioId: this.selectedPortfolioId(),
+      type: event.type,
+      description: event.description.trim(),
+      amount: event.amount,
+      date: new Date(),
+    };
+
+    this.transactionService.add(newTx);
+  }
 
   addNewTransaction(type: 'income' | 'expense') {
     if (!this.description().trim() || this.amount() <= 0) {
@@ -50,11 +96,11 @@ export class DashboardTransaction {
       type,
       description: this.description().trim(),
       amount: this.amount(),
-      date: new Date()
+      date: new Date(),
     };
 
     this.transactionService.add(newTx);
-    
+
     this.clearForm();
   }
 

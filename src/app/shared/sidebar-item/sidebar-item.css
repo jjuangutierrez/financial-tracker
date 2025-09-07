@@ -18,8 +18,8 @@
 }
 
 .more-icon:hover {
-    background-color: #d4d4d4;
-    border-radius: 50%;
+  background-color: #d4d4d4;
+  border-radius: 50%;
 }
 
 .options-menu {
@@ -48,7 +48,6 @@
   opacity: 1;
   transform: scale(1);
   pointer-events: auto;
-
 }
 
 .option {

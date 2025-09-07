@@ -6,12 +6,12 @@ import { SidebarItem } from '../sidebar-item/sidebar-item';
   selector: 'app-dashboard-sidebar',
   imports: [SidebarItem],
   templateUrl: './dashboard-sidebar.html',
-  styleUrl: './dashboard-sidebar.css'
+  styleUrl: './dashboard-sidebar.css',
 })
 export class DashboardSidebar {
-    portfolioService = inject(PortfolioService);
+  portfolioService = inject(PortfolioService);
 
-    addPortfolio() {
-      this.portfolioService.addPortfolio();
-    }
+  addPortfolio() {
+    this.portfolioService.addPortfolio();
+  }
 }

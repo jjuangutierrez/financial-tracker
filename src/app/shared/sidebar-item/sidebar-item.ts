@@ -1,5 +1,5 @@
-import { Component, inject, Input, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // 👈 para [(ngModel)]
+import { Component, inject, Input, signal, computed } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Portfolio } from '../../core/models/portfolio.model';
 import { PortfolioService } from '../../core/services/portfolio.servie';
 import { CommonModule } from '@angular/common';
@@ -9,31 +9,45 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './sidebar-item.html',
-  styleUrl: './sidebar-item.css'
+  styleUrl: './sidebar-item.css',
 })
 export class SidebarItem {
   @Input() portfolio!: Portfolio;
-  portfolioService = inject(PortfolioService);
+
+  private portfolioService = inject(PortfolioService);
 
   optionsVisible = signal(false);
   isEditing = signal(false);
   editedName = signal('');
 
-  toggleOptions(event: MouseEvent) {
-    event.stopPropagation();
-    this.optionsVisible.update(v => !v);
+  isSelected = computed(
+    () => this.portfolioService.selectedPortfolioId() === this.portfolio.id
+  );
+
+  selectPortfolio() {
+    if (!this.isEditing()) {
+      this.portfolioService.selectPortfolio(this.portfolio.id);
+    }
   }
 
-  startEditing() {
-    this.editedName.set(this.portfolio.name); // carga el nombre actual
+  toggleOptions(event: MouseEvent) {
+    event.stopPropagation();
+    this.optionsVisible.update((v) => !v);
+  }
+
+  startEditing(event: MouseEvent) {
+    event.stopPropagation();
+    this.editedName.set(this.portfolio.name);
     this.isEditing.set(true);
     this.optionsVisible.set(false);
   }
 
   saveEdit() {
     if (this.editedName().trim() !== '') {
-      this.portfolioService.renamePortfolio(this.portfolio.id, this.editedName());
-      this.portfolio.name = this.editedName(); // actualiza en UI
+      this.portfolioService.renamePortfolio(
+        this.portfolio.id,
+        this.editedName()
+      );
     }
     this.isEditing.set(false);
   }
@@ -42,7 +56,8 @@ export class SidebarItem {
     this.isEditing.set(false);
   }
 
-  delete() {
+  delete(event: MouseEvent) {
+    event.stopPropagation();
     this.portfolioService.deletePortfolio(this.portfolio.id);
     this.optionsVisible.set(false);
   }

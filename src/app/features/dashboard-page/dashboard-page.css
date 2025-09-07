@@ -1,0 +1,15 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+}
+
+.dashboard-content {
+  background-color: rgb(243, 243, 243);
+  width: 100%;
+}
+
+.transactions-section {
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+}
