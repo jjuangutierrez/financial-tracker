@@ -1,0 +1,11 @@
+<div class="item-container">
+  <li>
+    <span>{{ portfolio.portfolioName }}</span> 
+    <button (click)="toggleMenu()">⋮</button>
+
+    <div class="menu" [class.hidden]="!isMenuOpen">
+      <span (click)="deleteItem()">Delete</span>
+      <span (click)="renameItem()">Rename</span>
+    </div>
+  </li>
+</div>

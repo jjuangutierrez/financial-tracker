@@ -1,0 +1,20 @@
+# Angular
+client/node_modules/
+client/dist/
+client/.angular/cache/
+client/.env
+
+# .NET
+FinancialTrackerServer/bin/
+FinancialTrackerServer/obj/
+FinancialTrackerServer/appsettings.Development.json
+FinancialTrackerServer/.vs/
+
+# General
+*.log
+*.user
+*.suo
+*.tmp
+*.swp
+*.DS_Store
+Thumbs.db

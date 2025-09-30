@@ -1,0 +1,91 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f5f7fa;
+}
+
+form {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+form h1 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #00013d;
+  font-size: 2rem;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #2e2d35;
+}
+
+input {
+  padding: 0.8rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+input:focus {
+  border-color: #00013d;
+  box-shadow: 0 0 0 3px rgba(0, 1, 61, 0.1);
+}
+
+button {
+  background: #00013d;
+  color: white;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #2e2d35;
+}
+
+p {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+}
+
+p a {
+  color: #00013d;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+p a:hover {
+  color: #2e2d35;
+}
+
+.error {
+  margin: 0;
+  padding: 10px 0;
+  color: rgb(85, 0, 0);
+}
+
+.success {
+  margin: 0;
+  padding: 10px 0;
+  color: rgb(0, 85, 0);
+}

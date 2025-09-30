@@ -1,0 +1,70 @@
+<div class="register-container">
+  <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+    <h1>Register</h1>
+
+    @if (errorMessage) {
+      <p class="error">{{ errorMessage }}</p>
+    }
+
+    @if (successMessage) {
+      <p class="success">{{ successMessage }}</p>
+    }
+
+    <label for="firstname">First Name</label>
+    <input
+      id="firstname"
+      type="text"
+      [(ngModel)]="firstname"
+      name="firstname"
+      placeholder="Enter your first name"
+      required
+    />
+
+    <label for="lastname">Last Name</label>
+    <input
+      id="lastname"
+      type="text"
+      [(ngModel)]="lastname"
+      name="lastname"
+      placeholder="Enter your last name"
+      required
+    />
+
+    <label for="email">Email</label>
+    <input
+      id="email"
+      type="email"
+      [(ngModel)]="email"
+      name="email"
+      placeholder="Enter your email"
+      required
+    />
+
+    <label for="password">Password</label>
+    <input
+      id="password"
+      type="password"
+      [(ngModel)]="password"
+      name="password"
+      placeholder="Enter your password"
+      required
+    />
+
+    <label for="confirm-password">Confirm Password</label>
+    <input
+      id="confirm-password"
+      type="password"
+      [(ngModel)]="confirmPassword"
+      name="confirmPassword"
+      placeholder="Confirm your password"
+      required
+    />
+
+    <button type="submit">Register</button>
+
+    <p>
+      Already have an account?
+      <a [routerLink]="['/login']">Log In</a>
+    </p>
+  </form>
+</div>
