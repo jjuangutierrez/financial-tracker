@@ -1,0 +1,9 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.main-content {
+    margin: 24px;
+}

@@ -1,0 +1,38 @@
+<div>
+  <button (click)="onNewTransaction()">New transaction</button>
+
+  <table>
+    <caption>Transactions list</caption>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Type</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (tx of transactions$ | async; track tx.id) {
+        <tr>
+          <td>{{ tx.title }}</td>
+          <td>{{ tx.description }}</td>
+          <td [class.income]="tx.type === 'income'" [class.expense]="tx.type === 'expense'">
+            {{ tx.amount | currency }}
+          </td>
+          <td>{{ tx.type }}</td>
+          <td>{{ tx.date | date:'shortDate' }}</td>
+          <td>
+            <button (click)="onEdit(tx)">Edit</button>
+            <button (click)="onDelete(tx.id)">Delete</button>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="6">No transactions found</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

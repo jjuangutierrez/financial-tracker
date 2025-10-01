@@ -1,5 +1,23 @@
-<div>
-    <aside>
-        <app-sidebar></app-sidebar>
-    </aside>
+<div class="dashboard-container">
+  <aside>
+    <app-sidebar></app-sidebar>
+  </aside>
+  <article class="main-content">
+    <div>
+      <div>
+        @if (selectedPortfolio) {
+        <h2>{{ selectedPortfolio.portfolioName }}</h2>
+        <p>{{ selectedPortfolio.description }}</p>
+        } @else {
+        <p>Select or create a new portfolio!</p>
+        }
+      </div>
+    </div>
+
+    <div>summary</div>
+
+    <div>
+      <app-transaction-panel></app-transaction-panel>
+    </div>
+  </article>
 </div>

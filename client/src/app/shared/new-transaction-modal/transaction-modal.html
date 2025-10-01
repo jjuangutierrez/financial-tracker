@@ -1,0 +1,28 @@
+<div class="modal">
+  <h2>Nueva transacción</h2>
+
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <label for="title">Name</label>
+    <input id="title" name="title" type="text" ngModel required />
+
+    <label for="description">Description</label>
+    <input id="description" name="description" type="text" ngModel />
+
+    <label for="amount">Amount</label>
+    <input id="amount" name="amount" type="number" ngModel required />
+
+    <label for="type">Type</label>
+    <select id="type" name="type" ngModel required>
+      <option value="income">Income</option>
+      <option value="expense">Expense</option>
+    </select>
+
+    <label for="date">Date</label>
+    <input id="date" name="date" type="date" ngModel required />
+
+    <div class="actions">
+      <button type="submit" [disabled]="form.invalid">Save</button>
+      <button type="button" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>

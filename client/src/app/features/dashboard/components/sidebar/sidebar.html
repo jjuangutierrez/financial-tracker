@@ -5,11 +5,16 @@
 
   <div class="portfolio-list-container">
     <ul>
-      <ul>
-        @for (portfolio of portfolios$ | async; track portfolio.id) {
-        <app-portfolio-item [portfolio]="portfolio"></app-portfolio-item>
-        }
-      </ul>
+      @for (portfolio of portfolios$ | async; track portfolio.id) {
+        <app-portfolio-item 
+          [portfolio]="portfolio" 
+          [activeMenuId]="activeMenuId" 
+          (menuChange)="setActiveMenu($event)"
+          (rename)="onRename($event)"
+          (delete)="deleteItem($event)"
+          (select)="onSelectPortfolio($event)"
+        ></app-portfolio-item>
+      }
     </ul>
   </div>
 

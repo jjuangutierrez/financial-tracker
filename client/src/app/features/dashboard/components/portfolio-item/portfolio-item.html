@@ -1,11 +1,29 @@
-<div class="item-container">
-  <li>
-    <span>{{ portfolio.portfolioName }}</span> 
-    <button (click)="toggleMenu()">⋮</button>
+<li class="item-container" (click)="onSelect()">
+  @if (isEditing) {
+    <input 
+      class="rename-input"
+      type="text" 
+      [(ngModel)]="editedName"
+      (blur)="saveRename()"
+      (keydown)="onKeydown($event)"
+      (click)="$event.stopPropagation()"
+    />
+  } @else {
+    <span class="item-label">{{ portfolio.portfolioName }}</span>
 
-    <div class="menu" [class.hidden]="!isMenuOpen">
-      <span (click)="deleteItem()">Delete</span>
-      <span (click)="renameItem()">Rename</span>
+    <div class="menu-container">
+      <button class="menu-btn" (click)="toggleMenu($event)">⋮</button>
+
+      <div 
+        class="menu" 
+        [class.hidden]="activeMenuId !== portfolio.id" 
+        (click)="$event.stopPropagation()"
+        role="menu"
+        aria-hidden="{{ activeMenuId !== portfolio.id }}"
+      >
+        <button class="menu-item" (click)="renameItem($event)">Rename</button>
+        <button class="menu-item" (click)="deleteItem()">Delete</button>
+      </div>
     </div>
-  </li>
-</div>
+  }
+</li>
