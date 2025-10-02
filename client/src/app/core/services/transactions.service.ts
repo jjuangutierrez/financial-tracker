@@ -67,10 +67,11 @@ export class TransactionsService {
     return {
       ...apiTx,
       type: apiTx.type === 0 ? 'income' : 'expense',
+      date: apiTx.date ? new Date(apiTx.date).toISOString().split('T')[0] : ''
     };
   }
 
-  private mapToApi(tx: Partial<Transaction>): any {
+private mapToApi(tx: Partial<Transaction>): any {
     return {
       ...tx,
       type: tx.type === 'income' ? 0 : 1,

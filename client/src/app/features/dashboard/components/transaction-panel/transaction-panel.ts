@@ -34,15 +34,12 @@ export class TransactionPanel {
 
   }
 
-  onEdit(transaction: any): void {
-    // TODO: abrir modal con datos de la transacción
-    console.log('Editar transacción:', transaction);
-  }
+onEdit(transaction: any): void {
+  this.dialog.open(NewTransactionModal, { data: transaction });
+}
 
   onDelete(transactionId: number): void {
     this.transactionsService.deleteTransaction(transactionId);
   }
 
-  openModal(): void {
-  }
 }

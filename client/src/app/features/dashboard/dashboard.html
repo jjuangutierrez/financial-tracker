@@ -3,21 +3,25 @@
     <app-sidebar></app-sidebar>
   </aside>
   <article class="main-content">
-    <div>
-      <div>
-        @if (selectedPortfolio) {
+    @if (selectedPortfolio) {
+    <div class="summary-content">
+      <div class="header">
         <h2>{{ selectedPortfolio.portfolioName }}</h2>
         <p>{{ selectedPortfolio.description }}</p>
-        } @else {
-        <p>Select or create a new portfolio!</p>
-        }
       </div>
     </div>
 
-    <div>summary</div>
+    @if (selectedPortfolio) {
+    <app-portfolio-summary></app-portfolio-summary>
+    }
 
-    <div>
+    <div class="transactions-content">
       <app-transaction-panel></app-transaction-panel>
     </div>
+    } @else{
+    <div class="portfolio-not-found">
+      <p>Please select or create a portfolio!</p>
+    </div>
+    }
   </article>
 </div>

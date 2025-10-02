@@ -1,28 +1,58 @@
 <div class="modal">
-  <h2>Nueva transacción</h2>
+  <h2>{{ transactionData?.id ? 'Editar transacción' : 'Nueva transacción' }}</h2>
 
   <form #form="ngForm" (ngSubmit)="onSubmit(form)">
     <label for="title">Name</label>
-    <input id="title" name="title" type="text" ngModel required />
+    <input 
+      id="title" 
+      name="title" 
+      type="text" 
+      [(ngModel)]="initialFormData.title" 
+      required 
+    />
 
     <label for="description">Description</label>
-    <input id="description" name="description" type="text" ngModel />
+    <input 
+      id="description" 
+      name="description" 
+      type="text" 
+      [(ngModel)]="initialFormData.description" 
+    />
 
     <label for="amount">Amount</label>
-    <input id="amount" name="amount" type="number" ngModel required />
+    <input 
+      id="amount" 
+      name="amount" 
+      type="number" 
+      [(ngModel)]="initialFormData.amount" 
+      required 
+    />
 
     <label for="type">Type</label>
-    <select id="type" name="type" ngModel required>
+    <select 
+      id="type" 
+      name="type" 
+      [(ngModel)]="initialFormData.type" 
+      required
+    >
       <option value="income">Income</option>
       <option value="expense">Expense</option>
     </select>
 
     <label for="date">Date</label>
-    <input id="date" name="date" type="date" ngModel required />
+    <input 
+      id="date" 
+      name="date" 
+      type="date" 
+      [(ngModel)]="initialFormData.date" 
+      required 
+    />
 
     <div class="actions">
-      <button type="submit" [disabled]="form.invalid">Save</button>
-      <button type="button" (click)="onCancel()">Cancel</button>
+      <button type="submit" [disabled]="form.invalid">
+        {{ transactionData?.id ? 'Actualizar' : 'Guardar' }}
+      </button>
+      <button type="button" (click)="onCancel()">Cancelar</button>
     </div>
   </form>
 </div>

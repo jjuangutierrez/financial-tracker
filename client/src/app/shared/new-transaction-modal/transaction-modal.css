@@ -75,7 +75,6 @@ form button[type="submit"]:disabled {
   cursor: not-allowed;
 }
 
-/* Animación */
 @keyframes fadeIn {
   from {
     opacity: 0;

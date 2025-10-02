@@ -1,0 +1,82 @@
+.table-container {
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: auto;
+  border: 1px solid #ddd;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background-color: #00013d;
+  color: white;
+  z-index: 2;
+  padding: 8px;
+}
+
+th, td {
+  border: none;
+  padding: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+}
+
+
+th.title, td.title {
+  width: 20%;
+}
+
+th.description, td.description {
+  width: 30%;
+}
+
+th.amount, td.amount {
+  width: 12%;
+}
+
+th:nth-child(4), td:nth-child(4) { /* Type */
+  width: 10%;
+}
+
+th:nth-child(5), td:nth-child(5) { /* Date */
+  width: 12%;
+}
+
+th:nth-child(6), td:nth-child(6) { /* Actions */
+  width: 16%;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9fb;
+}
+
+tr:hover {
+  background-color: #f0f0ff;
+}
+
+td.income {
+  color: #52c41a;
+  font-weight: 600;
+}
+
+td.expense {
+  color: #ff4d4f;
+  font-weight: 600;
+}
+
+td:last-child {
+  white-space: normal; 
+}
+
+td button {
+  margin: 0 2px;
+  padding: 4px 8px;
+  font-size: 12px;
+}

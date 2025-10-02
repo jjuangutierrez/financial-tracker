@@ -1,9 +1,21 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
 .dashboard-container {
   display: flex;
   flex-direction: row;
   height: 100vh;
+  width: 100vw;
 }
 
-.main-content {
-    margin: 24px;
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }

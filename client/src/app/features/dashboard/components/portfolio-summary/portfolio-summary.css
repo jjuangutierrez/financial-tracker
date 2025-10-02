@@ -1,0 +1,36 @@
+.portfolio-summary-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.summary-cards {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+}
+
+.card {
+  padding: 26px 8%;
+  margin-right: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: white;
+  border-radius: 12px;
+}
+
+.chart-container {
+  flex: 1;
+  max-width: 600px;
+  background: white;
+  border-radius: 12px;
+  margin: 0px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.demo-chart {
+  height: 400px;
+  width: 100%;
+}
+
