@@ -15,7 +15,24 @@
 
 .header {
   display: flex;
+  align-items: center;
+  text-align: center;
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  margin: 0;
+}
+
+.header p {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.material-symbols-outlined {
+  line-height: 1;
+}
+
+.material-symbols-outlined:hover {
+  cursor: pointer;
 }

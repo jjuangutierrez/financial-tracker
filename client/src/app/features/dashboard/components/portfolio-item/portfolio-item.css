@@ -54,7 +54,9 @@ li.item-container:hover {
 }
 
 .menu-item {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   width: 100%;
   text-align: left;
   padding: 8px 12px;
@@ -63,6 +65,12 @@ li.item-container:hover {
   cursor: pointer;
   font-size: 14px;
 }
+
+.menu-item .material-symbols-outlined {
+  font-size: 18px;
+  line-height: 1;
+}
+
 .menu-item:hover { background: #f0f0ff; }
 
 .hidden { display: none; }

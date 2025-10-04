@@ -1,5 +1,9 @@
 <div>
-  <button (click)="onNewTransaction()">New transaction</button>
+  <div class="add-transaction-btn">
+    <button (click)="onNewTransaction()">
+      <span class="material-symbols-outlined"> add </span>New transaction
+    </button>
+  </div>
 
   <div class="table-container">
     <table>
@@ -18,9 +22,11 @@
         <tr>
           <td class="title" [title]="tx.title">{{ tx.title }}</td>
           <td class="description" [title]="tx.description">{{ tx.description }}</td>
-          <td class="amount"
-              [class.income]="tx.type === 'income'"
-              [class.expense]="tx.type === 'expense'">
+          <td
+            class="amount"
+            [class.income]="tx.type === 'income'"
+            [class.expense]="tx.type === 'expense'"
+          >
             {{ tx.amount | currency }}
           </td>
           <td>{{ tx.type }}</td>

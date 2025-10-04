@@ -7,12 +7,10 @@
 
 .modal {
   background: #fff;
-  border-radius: 12px;
   padding: 2rem;
-  max-width: 480px;
-  width: 90%;
+  max-width: 580px;
+  width: 580px;
   margin: 4rem auto;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   animation: fadeIn 0.25s ease-in-out;
 }
 
@@ -44,18 +42,20 @@ form select {
   border-radius: 6px;
   font-size: 0.95rem;
   transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 form input:focus,
 form select:focus {
   outline: none;
-  border-color: #4f46e5;
+  border-color: #00013d;
   box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.25);
 }
 
 form button[type="submit"] {
   padding: 0.7rem 1rem;
-  background: #4f46e5;
+  background: #00013d;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -67,12 +67,56 @@ form button[type="submit"] {
 }
 
 form button[type="submit"]:hover:not(:disabled) {
-  background: #4338ca;
+  background: #1a1a6b;
 }
 
 form button[type="submit"]:disabled {
-  background: #a5b4fc;
+  background: #7e7eaa;
   cursor: not-allowed;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.actions button {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.actions button[type="button"] {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.actions button[type="button"]:hover {
+  background: #d1d5db;
+}
+
+form textarea {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+  resize: vertical;
+}
+
+form textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.25);
 }
 
 @keyframes fadeIn {

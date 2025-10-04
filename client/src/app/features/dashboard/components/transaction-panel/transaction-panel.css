@@ -20,36 +20,45 @@ thead th {
   padding: 8px;
 }
 
-th, td {
+th,
+td {
   border: none;
   padding: 8px;
   overflow: hidden;
-  text-overflow: ellipsis; 
-  white-space: nowrap; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-
-th.title, td.title {
+th.title,
+td.title {
   width: 20%;
 }
 
-th.description, td.description {
+th.description,
+td.description {
   width: 30%;
 }
 
-th.amount, td.amount {
+th.amount,
+td.amount {
   width: 12%;
 }
 
-th:nth-child(4), td:nth-child(4) { /* Type */
+th:nth-child(4),
+td:nth-child(4) {
+  /* Type */
   width: 10%;
 }
 
-th:nth-child(5), td:nth-child(5) { /* Date */
+th:nth-child(5),
+td:nth-child(5) {
+  /* Date */
   width: 12%;
 }
 
-th:nth-child(6), td:nth-child(6) { /* Actions */
+th:nth-child(6),
+td:nth-child(6) {
+  /* Actions */
   width: 16%;
 }
 
@@ -72,11 +81,49 @@ td.expense {
 }
 
 td:last-child {
-  white-space: normal; 
+  white-space: normal;
 }
 
 td button {
   margin: 0 2px;
   padding: 4px 8px;
   font-size: 12px;
+}
+
+.add-transaction-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 16px 0px;
+}
+
+
+.add-transaction-btn button:hover {
+  background-color: #8beb5b;
+}
+
+.add-transaction-btn button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  color: white;
+  background-color: #52c41a;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+
+.add-transaction-btn .material-symbols-outlined {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.add-transaction-btn button:hover {
+  background-color: #81dd53;
+  font-weight: bold;
 }

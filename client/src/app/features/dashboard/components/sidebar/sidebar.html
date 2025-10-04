@@ -1,22 +1,26 @@
 <div class="sidebar">
   <h1>Portfolios</h1>
 
-  <button class="new-portfolio-btn" (click)="createPortfolio()">New portfolio</button>
+  <button class="new-portfolio-btn" (click)="createPortfolio()">
+    <span class="material-symbols-outlined"> business_center </span>New portfolio
+  </button>
 
   <div class="portfolio-list-container">
     <ul>
       @for (portfolio of portfolios$ | async; track portfolio.id) {
-        <app-portfolio-item 
-          [portfolio]="portfolio" 
-          [activeMenuId]="activeMenuId" 
-          (menuChange)="setActiveMenu($event)"
-          (rename)="onRename($event)"
-          (delete)="deleteItem($event)"
-          (select)="onSelectPortfolio($event)"
-        ></app-portfolio-item>
+      <app-portfolio-item
+        [portfolio]="portfolio"
+        [activeMenuId]="activeMenuId"
+        (menuChange)="setActiveMenu($event)"
+        (rename)="onRename($event)"
+        (delete)="deleteItem($event)"
+        (select)="onSelectPortfolio($event)"
+      ></app-portfolio-item>
       }
     </ul>
   </div>
 
-  <button class="logout-btn" (click)="logOut()">Log out</button>
+  <button class="logout-btn" (click)="logOut()">
+    <span class="material-symbols-outlined"> logout </span> Log out
+  </button>
 </div>

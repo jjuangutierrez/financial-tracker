@@ -1,29 +1,33 @@
 <li class="item-container" (click)="onSelect()">
   @if (isEditing) {
-    <input 
-      class="rename-input"
-      type="text" 
-      [(ngModel)]="editedName"
-      (blur)="saveRename()"
-      (keydown)="onKeydown($event)"
-      (click)="$event.stopPropagation()"
-    />
+  <input
+    class="rename-input"
+    type="text"
+    [(ngModel)]="editedName"
+    (blur)="saveRename()"
+    (keydown)="onKeydown($event)"
+    (click)="$event.stopPropagation()"
+  />
   } @else {
-    <span class="item-label">{{ portfolio.portfolioName }}</span>
+  <span class="item-label">{{ portfolio.portfolioName }}</span>
 
-    <div class="menu-container">
-      <button class="menu-btn" (click)="toggleMenu($event)">⋮</button>
+  <div class="menu-container">
+    <button class="menu-btn" (click)="toggleMenu($event)">⋮</button>
 
-      <div 
-        class="menu" 
-        [class.hidden]="activeMenuId !== portfolio.id" 
-        (click)="$event.stopPropagation()"
-        role="menu"
-        aria-hidden="{{ activeMenuId !== portfolio.id }}"
-      >
-        <button class="menu-item" (click)="renameItem($event)">Rename</button>
-        <button class="menu-item" (click)="deleteItem()">Delete</button>
-      </div>
+    <div
+      class="menu"
+      [class.hidden]="activeMenuId !== portfolio.id"
+      (click)="$event.stopPropagation()"
+      role="menu"
+      aria-hidden="{{ activeMenuId !== portfolio.id }}"
+    >
+      <button class="menu-item" (click)="renameItem($event)">
+        <span class="material-symbols-outlined"> edit </span> Rename
+      </button>
+      <button class="menu-item" (click)="deleteItem()">
+        <span class="material-symbols-outlined"> delete </span>Delete
+      </button>
     </div>
+  </div>
   }
 </li>

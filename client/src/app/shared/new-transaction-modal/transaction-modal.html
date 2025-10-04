@@ -1,58 +1,58 @@
-<div class="modal">
-  <h2>{{ transactionData?.id ? 'Editar transacción' : 'Nueva transacción' }}</h2>
-
-  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
-    <label for="title">Name</label>
-    <input 
-      id="title" 
-      name="title" 
-      type="text" 
-      [(ngModel)]="initialFormData.title" 
+<div class="modal"> 
+  <h2>{{ transactionData?.id ? 'Editar transacción' : 'Nueva transacción' }}</h2> 
+ 
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)"> 
+    <label for="title">Name</label> 
+    <input  
+      id="title"  
+      name="title"  
+      type="text"  
+      [(ngModel)]="initialFormData.title"  
+      required  
+    /> 
+ 
+    <label for="description">Description</label> 
+    <textarea  
+      id="description"  
+      name="description"  
+      [(ngModel)]="initialFormData.description"
+      rows="3"
+    ></textarea>
+ 
+    <label for="amount">Amount</label> 
+    <input  
+      id="amount"  
+      name="amount"  
+      type="number"  
+      [(ngModel)]="initialFormData.amount"  
+      required  
+    /> 
+ 
+    <label for="type">Type</label> 
+    <select  
+      id="type"  
+      name="type"  
+      [(ngModel)]="initialFormData.type"  
       required 
-    />
-
-    <label for="description">Description</label>
-    <input 
-      id="description" 
-      name="description" 
-      type="text" 
-      [(ngModel)]="initialFormData.description" 
-    />
-
-    <label for="amount">Amount</label>
-    <input 
-      id="amount" 
-      name="amount" 
-      type="number" 
-      [(ngModel)]="initialFormData.amount" 
-      required 
-    />
-
-    <label for="type">Type</label>
-    <select 
-      id="type" 
-      name="type" 
-      [(ngModel)]="initialFormData.type" 
-      required
-    >
-      <option value="income">Income</option>
-      <option value="expense">Expense</option>
-    </select>
-
-    <label for="date">Date</label>
-    <input 
-      id="date" 
-      name="date" 
-      type="date" 
-      [(ngModel)]="initialFormData.date" 
-      required 
-    />
-
-    <div class="actions">
-      <button type="submit" [disabled]="form.invalid">
-        {{ transactionData?.id ? 'Actualizar' : 'Guardar' }}
-      </button>
-      <button type="button" (click)="onCancel()">Cancelar</button>
-    </div>
-  </form>
+    > 
+      <option value="income">Income</option> 
+      <option value="expense">Expense</option> 
+    </select> 
+ 
+    <label for="date">Date</label> 
+    <input  
+      id="date"  
+      name="date"  
+      type="date"  
+      [(ngModel)]="initialFormData.date"  
+      required  
+    /> 
+ 
+    <div class="actions"> 
+      <button type="submit" [disabled]="form.invalid"> 
+        {{ transactionData?.id ? 'Actualizar' : 'Guardar' }} 
+      </button> 
+      <button type="button" (click)="onCancel()">Cancelar</button> 
+    </div> 
+  </form> 
 </div>

@@ -1,64 +1,76 @@
 .sidebar {
-    width: 220px;
-    height: 100vh;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    background: #f9f9fb;
-    border-right: 2px solid #d4d4df;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+  width: 220px;
+  height: 100vh;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  background: #f9f9fb;
+  border-right: 2px solid #d4d4df;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .sidebar h1 {
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #00013d;
-    flex-shrink: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #00013d;
+  flex-shrink: 0;
 }
 
 .new-portfolio-btn {
-    margin-bottom: 16px;
-    padding: 10px;
-    color: white;
-    background-color: #00013d;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.2s ease-in-out;
-    flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 10px;
+  color: white;
+  background-color: #00013d;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+  flex-shrink: 0;
 }
 
 .new-portfolio-btn:hover {
-    background-color: #1a1a6b;
+  background-color: #1a1a6b;
+  font-weight: bold;
 }
 
 .portfolio-list-container {
-    flex: 1;
-    overflow-y: auto;
-    min-height: 0;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
 }
 
 .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
+.new-portfolio-btn .material-symbols-outlined,
+.logout-btn .material-symbols-outlined {
+  font-size: 18px;
+  line-height: 1;
+}
 .logout-btn {
-    margin-top: 16px;
-    padding: 10px;
-    color: #00013d;
-    background: transparent;
-    border: 1px solid #00013d;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 10px;
+  color: #00013d;
+  background: transparent;
+  border: 1px solid #00013d;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  flex-shrink: 0;
 }
 
 .logout-btn:hover {
-    background: #00013d;
-    color: white;
+  background: #00013d;
+  color: white;
 }

@@ -7,7 +7,22 @@
     <div class="summary-content">
       <div class="header">
         <h2>{{ selectedPortfolio.portfolioName }}</h2>
-        <p>{{ selectedPortfolio.description }}</p>
+        @if (isEditingDescription) {
+        <input
+          type="text"
+          [(ngModel)]="editedDescription"
+          (blur)="saveDescription()"
+          (keydown.enter)="saveDescription()"
+          (keydown.escape)="cancelEditing()"
+          class="edit-description-input"
+          autofocus
+        />
+        } @else {
+        <p>
+          {{ selectedPortfolio.description }}
+          <span class="material-symbols-outlined" (click)="startEditingDescription()"> edit </span>
+        </p>
+        }
       </div>
     </div>
 
